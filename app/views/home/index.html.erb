@@ -1,5 +1,9 @@
 <div class="container">
   <div class="row">
+    <div class="col-lg-2">
+      Table here
+    </div>
+    <div class="col-lg-10">
       <table class="table table-hover">
         <thead>
         <tr>
@@ -9,14 +13,15 @@
         </tr>
         </thead>
         <tbody>
-            <% @players.each do |player| %>
-              <tr>
-                  <td><%= player.name %></td>
-                  <td><%= player.description %></td>
-                  <td><%= player.rating %></td>
-              </tr>
-            <% end %>
+        <% @players.each do |player| %>
+          <tr>
+            <td><%= player.name %></td>
+            <td><%= player.description %></td>
+            <td><%= player.rating %></td>
+          </tr>
+        <% end %>
         </tbody>
       </table>
     </div>
+  </div>
 </div>
