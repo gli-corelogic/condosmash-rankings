@@ -1,1 +1,3 @@
-Hello there <%= @var %>
+<% @players.each do |player| %>
+    <%= player.name %>, <%= player.rating %><br/>
+<% end %>

@@ -1,5 +1,5 @@
 class HomeController < ActionController::Base
   def index
-    @var = "1234"
+    @players = Player.all
   end
 end
