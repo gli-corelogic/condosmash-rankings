@@ -1,9 +1,16 @@
-<%= render '/shared/navbar' %>
-
 <% if @recent_matches.size > 0 %>
-  <%= render 'last_match_info' %>
-
   <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <span class="pull-left"><%= button_to '+ Add Match', new_match_path, :class => 'btn btn-lg btn-default', :method => :get %></span>
+        <span class="pull-left margin-left-1"><%= button_to '+ Add Player', new_player_path, :class => 'btn btn-lg btn-default', :method => :get %></span>
+      </div>
+    </div>
+
+    <div class="row margin-top-2">
+      <%= render 'last_match_info' %>
+    </div>
+
     <div class="row">
       <div class="col-lg-2">
         <%= render 'recent_matches_table' %>
