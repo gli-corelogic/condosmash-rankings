@@ -1,0 +1,46 @@
+<%= javascript_include_tag 'matches_scripts' %>
+
+<%= form_for @match, :html => {:class => 'form-horizontal center'} do |f| %>
+  <div class="container">
+    <h2>Log a match</h2>
+
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-1">
+        <div class="form-group">
+          <%= f.label :player_a_id, 'Player A', :class => 'control-label' %>
+          <%= f.select(:player_a_id, options_for_select(@all_players.collect {|p| [p.name, p.id] }), {}, {:class => 'js-example-basic-single form-control'}) %>
+        </div>
+      </div>
+      <div class="col-lg-2 col-lg-offset-2">
+        <div class="form-group">
+          <%= f.label :player_a_score, 'Rounds Won', :class => 'control-label' %>
+          <%= f.text_field :player_a_score, :placeholder => 'e.g. 2', :class => 'form-control', :type => 'number' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-1">
+        <div class="form-group">
+          <%= f.label :player_b_id, 'Player B', :class => 'control-label' %>
+          <%= f.select(:player_b_id, options_for_select(@all_players.collect {|p| [p.name, p.id] }), {}, {:class => 'js-example-basic-single form-control'}) %>
+        </div>
+      </div>
+      <div class="col-lg-2 col-lg-offset-2">
+        <div class="form-group">
+          <%= f.label :player_b_score, 'Rounds Won', :class => 'control-label' %>
+          <%= f.text_field :player_b_score, :placeholder => 'e.g. 1', :class => 'form-control', :type => 'number' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-1 col-lg-offset-10">
+        <div class="form-group">
+          <%= f.submit 'Log match', :type => 'submit', :class => 'btn btn-default' %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+<% end %>
