@@ -2,7 +2,7 @@ include ActionView::Helpers::DateHelper
 
 class HomeController < ApplicationController
   def index
-    @players = Player.all
+    @players = Player.order('rating DESC')
 
     @recent_matches = Match.order('created_at DESC').limit(10)
     @recent_matches.each do |match|

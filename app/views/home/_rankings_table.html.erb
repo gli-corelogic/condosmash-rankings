@@ -12,7 +12,7 @@
       </tr>
       </thead>
       <tbody>
-        <% @players.each do |player| %>
+        <% @players.each_with_index do |player, index| %>
           <tr>
             <td><%= player.name %></td>
             <td><%= player.description %></td>
