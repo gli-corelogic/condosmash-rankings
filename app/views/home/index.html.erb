@@ -2,8 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-left">
-        <span class="pull-left"><%= button_to '+ Add Match', new_match_path, :class => 'btn btn-lg btn-default', :method => :get %></span>
-        <span class="pull-left margin-left-1"><%= button_to '+ Add Player', new_player_path, :class => 'btn btn-lg btn-default', :method => :get %></span>
+        <%= render 'shared/add_matches_and_players_actions' %>
       </div>
     </div>
 
