@@ -1,65 +1,7 @@
-<nav class="navbar navbar-default">
-  <div class="navbar-inner">
-    <div class="container">
-      <span class="navbar-brand">
-        Condosmash Rankings
-      </span>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Matches</a></li>
-        <li><a href="#">Players</a></li>
-        <li><a href="#">About</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<%= render '/shared/navbar' %>
 
 <% if @recent_matches.size > 0 %>
-  <div class="container">
-    <div class="jumbotron">
-      <div class="container">
-        <h1 class="text-center">Last Match</h1>
-        <div class="col-lg-3 col-lg-offset-2 text-right">
-          <div class="row">
-            <h2><%= @recent_matches[0].player_a_name %></h2>
-          </div>
-          <div class="row">
-              <h5>Rating <%= @last_match_player_a.rating %>
-                <span class="<%= if @last_match.player_a_rating_delta < 0 then
-                                   'delta-negative'
-                                 elsif @last_match.player_a_rating_delta > 0
-                                 'delta-positive'
-                                 end %>">
-                  (<%= sprintf('%+i', @last_match.player_a_rating_delta) %>)
-                </span>
-              </h5>
-            </span>
-          </div>
-          <div class="row">
-            <h2><%= @recent_matches[0].player_a_score %></h2>
-          </div>
-        </div>
-        <div class="col-lg-3 col-lg-offset-2 text-left">
-          <div class="row">
-            <h2><%= @recent_matches[0].player_b_name %></h2>
-          </div>
-          <div class="row">
-            <h5>Rating <%= @last_match_player_b.rating %>
-              <span class="<%= if @last_match.player_b_rating_delta < 0 then
-                                 'delta-negative'
-                               elsif @last_match.player_b_rating_delta > 0
-                                 'delta-positive'
-                               end %>">
-                (<%= sprintf('%+i', @last_match.player_b_rating_delta) %>)
-              </span>
-            </h5>
-          </div>
-          <div class="row">
-            <h2><%= @recent_matches[0].player_b_score %></h2>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%= render 'last_match_info' %>
 
   <div class="container">
     <div class="row">
