@@ -1,49 +1,56 @@
-<table class="table">
-  <tbody>
-  <% @recent_matches.each do |match| %>
-    <tr>
-      <td>
-        <div class="row">
-          <span class="pull-left">
-            <% if match.player_a_score > match.player_b_score %>
-              <strong><%= match.player_a_name %></strong>
-            <% else %>
-              <%= match.player_a_name %>
-            <% end %>
-          </span>
-          <span class="pull-right">
-            <% if match.player_a_score > match.player_b_score %>
-              <strong><%= match.player_a_score %></strong>
-            <% else %>
-              <%= match.player_a_score %>
-            <% end %>
-          </span>
-        </div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Recent Matches
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <tbody>
+      <% @recent_matches.each do |match| %>
+        <tr>
+          <td>
+            <div class="row">
+                  <span class="pull-left">
+                    <% if match.player_a_score > match.player_b_score %>
+                      <strong><%= match.player_a_name %></strong>
+                    <% else %>
+                      <%= match.player_a_name %>
+                    <% end %>
+                  </span>
+                  <span class="pull-right">
+                    <% if match.player_a_score > match.player_b_score %>
+                      <strong><%= match.player_a_score %></strong>
+                    <% else %>
+                      <%= match.player_a_score %>
+                    <% end %>
+                  </span>
+            </div>
 
-        <div class="row">
-          <span class="pull-left">
-            <% if match.player_b_score > match.player_a_score %>
-              <strong><%= match.player_b_name %></strong>
-            <% else %>
-              <%= match.player_b_name %>
-            <% end %>
-          </span>
-          <span class="pull-right">
-            <% if match.player_b_score > match.player_a_score %>
-              <strong><%= match.player_b_score %></strong>
-            <% else %>
-              <%= match.player_b_score %>
-            <% end %>
-          </span>
-        </div>
+            <div class="row">
+                  <span class="pull-left">
+                    <% if match.player_b_score > match.player_a_score %>
+                      <strong><%= match.player_b_name %></strong>
+                    <% else %>
+                      <%= match.player_b_name %>
+                    <% end %>
+                  </span>
+                  <span class="pull-right">
+                    <% if match.player_b_score > match.player_a_score %>
+                      <strong><%= match.player_b_score %></strong>
+                    <% else %>
+                      <%= match.player_b_score %>
+                    <% end %>
+                  </span>
+            </div>
 
-        <div class="row">
-          <span class="pull-right" title="<%= match.created_at_formatted %>">
-            <small><%= match.created_at_ago %> ago</small>
-          </span>
-        </div>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+            <div class="row">
+                  <span class="pull-right" title="<%= match.created_at_formatted %>">
+                    <small><%= match.created_at_ago %> ago</small>
+                  </span>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
