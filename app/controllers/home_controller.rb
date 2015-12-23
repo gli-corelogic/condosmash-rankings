@@ -11,5 +11,10 @@ class HomeController < ApplicationController
       match.created_at_formatted = match.created_at.in_time_zone.strftime('%m/%d/%Y %I:%M %p')
       match.created_at_ago = time_ago_in_words(match.created_at)
     end
+
+    if @recent_matches.size > 0
+      @last_match_player_a_rating = Player.find(@recent_matches[0].player_a_id).rating
+      @last_match_player_b_rating = Player.find(@recent_matches[0].player_b_id).rating
+    end
   end
 end
