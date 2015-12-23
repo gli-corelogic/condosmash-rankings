@@ -13,8 +13,9 @@ class HomeController < ApplicationController
     end
 
     if @recent_matches.size > 0
-      @last_match_player_a_rating = Player.find(@recent_matches[0].player_a_id).rating
-      @last_match_player_b_rating = Player.find(@recent_matches[0].player_b_id).rating
+      @last_match = @recent_matches[0]
+      @last_match_player_a = Player.find(@recent_matches[0].player_a_id)
+      @last_match_player_b = Player.find(@recent_matches[0].player_b_id)
     end
   end
 end

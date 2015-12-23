@@ -1,3 +1,11 @@
 table.sidebar-table tr:first-child td{
     border-top-width: 0;
 }
+
+.delta-positive {
+    color: green;
+}
+
+.delta-negative {
+    color: red;
+}
