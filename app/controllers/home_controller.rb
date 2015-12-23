@@ -3,6 +3,7 @@ include ActionView::Helpers::DateHelper
 class HomeController < ApplicationController
   def index
     @players = Player.all
+
     @recent_matches = Match.order('created_at DESC').limit(10)
     @recent_matches.each do |match|
       match.player_a_name = Player.find(match.player_a_id).name
