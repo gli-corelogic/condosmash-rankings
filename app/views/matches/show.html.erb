@@ -1,1 +1,30 @@
-<%= @match.player_a_name %>: <%= @match.player_a_score %>, <%= @match.player_b_name %>: <%= @match.player_b_score %>
+<div class="container">
+
+  <div class="col-lg-6 col-lg-offset-3">
+    <div class="row">
+      <h1>Match #<%= @match.id %></h1>
+    </div>
+    <div class="row margin-bottom-4">
+      <h5>Matched played <%= @match.created_at.strftime('%b. %-d, %Y') %></h5>
+    </div>
+    <div class="row">
+      <div class="panel <%= if @match.player_a_score != @match.player_b_score then 'panel-success' else 'panel-default' end %>">
+        <div class="panel-heading"><div class="row"><span class="pull-left margin-left-2"><%= @winner.name %></span><span class="pull-right margin-right-2">Score: <%= @winner_score %></span></div></div>
+        <div class="panel-body">
+          Rating <%= @winner.rating %>
+          <%= render 'shared/player_rating_delta', rating_delta: @winner_rating_delta %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="panel <%= if @match.player_a_score != @match.player_b_score then 'panel-danger' else 'panel-default' end %>">
+        <div class="panel-heading"><div class="row"><span class="pull-left margin-left-2"><%= @loser.name %></span><span class="pull-right margin-right-2">Score: <%= @loser_score %></span></div></div>
+        <div class="panel-body">
+          Rating <%= @loser.rating %>
+          <%= render 'shared/player_rating_delta', rating_delta: @loser_rating_delta %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

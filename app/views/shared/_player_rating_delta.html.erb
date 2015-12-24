@@ -1,0 +1,7 @@
+<% if rating_delta > 0 %>
+  <span class="delta-positive">(<%= sprintf('%+i', rating_delta) %>)</span>
+<% elsif rating_delta < 0 %>
+  <span class="delta-negative">(<%= sprintf('%+i', rating_delta) %>)</span>
+<% else %>
+  (0)
+<% end %>

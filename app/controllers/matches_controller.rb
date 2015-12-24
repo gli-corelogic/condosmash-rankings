@@ -2,8 +2,39 @@ class MatchesController < ApplicationController
 
   def show
     @match = Match.find(params[:id])
-    @match.player_a_name = Player.find(@match.player_a_id).name
-    @match.player_b_name = Player.find(@match.player_b_id).name
+
+    player_a = Player.find(@match.player_a_id)
+    player_b = Player.find(@match.player_b_id)
+
+    @match.player_a_name = player_a.name
+    @match.player_b_name = player_b.name
+
+    @winner = nil
+    @winner_score = nil
+    @loser = nil
+    @loser_score = nil
+    @match_tied = true
+
+    if @match.player_a_score > @match.player_b_score
+      @winner = player_a
+      @winner_score = @match.player_a_score
+      @winner_rating_delta = @match.player_a_rating_delta
+      @loser = player_b
+      @loser_score = @match.player_b_score
+      @loser_rating_delta = @match.player_b_rating_delta
+
+    else
+      @winner = player_b
+      @winner_score = @match.player_b_score
+      @winner_rating_delta = @match.player_b_rating_delta
+      @loser = player_a
+      @loser_score = @match.player_a_score
+      @loser_rating_delta = @match.player_a_rating_delta
+    end
+
+    if @match.player_a_score != @match.player_b_score
+      @match_tied = false
+    end
   end
 
   def new

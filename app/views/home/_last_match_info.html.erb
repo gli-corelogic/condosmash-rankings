@@ -8,13 +8,7 @@
         </div>
         <div class="row">
           <h5>Rating <%= @last_match_player_a.rating %>
-            <span class="<%= if @last_match.player_a_rating_delta < 0 then
-                               'delta-negative'
-                             elsif @last_match.player_a_rating_delta > 0
-                               'delta-positive'
-                             end %>">
-                  (<%= sprintf('%+i', @last_match.player_a_rating_delta) %>)
-                </span>
+            <%= render 'shared/player_rating_delta', rating_delta: @last_match.player_a_rating_delta %>
           </h5>
           </span>
         </div>
@@ -28,13 +22,7 @@
         </div>
         <div class="row">
           <h5>Rating <%= @last_match_player_b.rating %>
-            <span class="<%= if @last_match.player_b_rating_delta < 0 then
-                               'delta-negative'
-                             elsif @last_match.player_b_rating_delta > 0
-                               'delta-positive'
-                             end %>">
-                (<%= sprintf('%+i', @last_match.player_b_rating_delta) %>)
-              </span>
+            <%= render 'shared/player_rating_delta', rating_delta: @last_match.player_b_rating_delta %>
           </h5>
         </div>
         <div class="row">

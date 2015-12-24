@@ -43,9 +43,12 @@
             </div>
 
             <div class="row">
-                  <span class="pull-right" title="<%= match.created_at_formatted %>">
-                    <small><%= match.created_at_ago %> ago</small>
-                  </span>
+              <span class="pull-left">
+                <small><%= link_to 'View Details', match_path(match) %></small>
+              </span>
+              <span class="pull-right" title="<%= match.created_at_formatted %>">
+                <small><%= match.created_at_ago %> ago</small>
+              </span>
             </div>
           </td>
         </tr>
