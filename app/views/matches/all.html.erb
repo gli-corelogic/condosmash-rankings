@@ -1,0 +1,18 @@
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Player</th>
+        <th>Opponent</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @all_matches.each do |match| %>
+        <tr>
+          <td><%= Player.find(match.player_a_id).name %></td>
+          <td><%= Player.find(match.player_b_id).name %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

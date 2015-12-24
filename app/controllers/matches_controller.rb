@@ -37,6 +37,11 @@ class MatchesController < ApplicationController
     end
   end
 
+  def show_all
+    @all_matches = Match.all
+    render 'all'
+  end
+
   def new
     @all_players = Player.all
     @match = Match.new
